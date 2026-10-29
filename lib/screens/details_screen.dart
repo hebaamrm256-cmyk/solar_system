@@ -23,15 +23,6 @@ class DetailsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
-              child: Image.asset(
-                planet.image,
-                height: 250,
-              ),
-            ),
-
-            const SizedBox(height: 20),
-
             Text(
               planet.name,
               style: const TextStyle(
@@ -50,6 +41,7 @@ class DetailsScreen extends StatelessWidget {
                 fontSize: 18,
               ),
             ),
+
             const SizedBox(height: 15),
 
             const Divider(
@@ -57,7 +49,17 @@ class DetailsScreen extends StatelessWidget {
               thickness: 1,
             ),
 
-            const SizedBox(height: 25),
+            Container(
+              height: 300,
+              width: double.infinity,
+              alignment: Alignment.center,
+              child: Image.asset(
+                planet.image,
+                fit: BoxFit.contain,
+              ),
+            ),
+
+            const SizedBox(height: 20),
 
             const Text(
               "About",
@@ -104,11 +106,15 @@ class DetailsScreen extends StatelessWidget {
       child: ListTile(
         title: Text(
           title,
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(
+            color: Colors.white,
+          ),
         ),
         subtitle: Text(
           value,
-          style: const TextStyle(color: Colors.white70),
+          style: const TextStyle(
+            color: Colors.white70,
+          ),
         ),
       ),
     );
